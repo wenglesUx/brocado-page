@@ -1,0 +1,259 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  min-height: calc(100vh - 200px);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-surface-alt);
+  font-family: var(--font-primary);
+}
+
+.infoGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.infoRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.infoLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  font-family: var(--font-primary);
+}
+
+.infoValue {
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--color-surface-alt);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: all 0.3s;
+  font-family: var(--font-primary);
+}
+
+.menuItem:hover {
+  background: rgba(249, 103, 0, 0.1);
+  transform: translateX(4px);
+  border-left: 4px solid var(--color-primary);
+  padding-left: calc(1rem - 4px);
+}
+
+.menuItemContent {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.menuItemIcon {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+}
+
+.menuItemText {
+  font-weight: 600;
+  font-family: var(--font-primary);
+}
+
+.menuItemArrow {
+  color: var(--color-text-light);
+}
+
+.logoutBtn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--color-primary-dark);
+  color: var(--color-text-footer);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: var(--font-primary);
+}
+
+.logoutBtn:hover {
+  background: #8a2200;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+    margin: 1rem auto;
+    min-height: calc(100vh - 150px);
+  }
+
+  .title {
+    font-size: 1.35rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .cardTitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .infoGrid {
+    gap: 0.75rem;
+  }
+
+  .infoRow {
+    gap: 0.15rem;
+  }
+
+  .infoLabel {
+    font-size: 0.8rem;
+  }
+
+  .infoValue {
+    font-size: 0.95rem;
+  }
+
+  .menuItem {
+    padding: 0.875rem;
+    border-radius: 6px;
+  }
+
+  .menuItem:hover {
+    padding-left: 0.875rem;
+  }
+
+  .menuItemIcon {
+    font-size: 1.1rem;
+  }
+
+  .menuItemText {
+    font-size: 0.95rem;
+  }
+
+  .logoutBtn {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Responsividade para mobile pequeno */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+    margin: 0.5rem auto;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .cardTitle {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .infoGrid {
+    gap: 0.5rem;
+  }
+
+  .infoLabel {
+    font-size: 0.75rem;
+  }
+
+  .infoValue {
+    font-size: 0.9rem;
+  }
+
+  .menuList {
+    gap: 0.4rem;
+  }
+
+  .menuItem {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .menuItemIcon {
+    font-size: 1rem;
+  }
+
+  .logoutBtn {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}

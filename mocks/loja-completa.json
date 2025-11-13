@@ -1,0 +1,202 @@
+[
+  {
+    "id": "loja-001",
+    "slug": "gracibolos-doces",
+    "nome": "Gracibolos & Doces",
+    "logo": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+    "endereco": "R. Traíra, 110",
+    "avaliacao": 4.8,
+    "tempoMedioEntrega": "25-35 min",
+    "taxaEntrega": "R$ 4,70",
+    "entregaGratis": true,
+    "categorias": [
+      {
+        "id": "cat-001",
+        "nome": "Doces & Bolos",
+        "slug": "doces-e-bolos",
+        "icone": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+        "itens": [
+          {
+            "id": 38,
+            "nome": "Bolo de Fubá com Goiabada",
+            "slug": "bolo-de-fuba-com-goiabada",
+            "nota": 4.8,
+            "distancia": "0.6 km",
+            "tempoEntrega": "25-35 min",
+            "taxaEntrega": "R$ 4,70",
+            "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "descricaoCompleta": "Delicioso bolo de fubá com uma generosa camada de goiabada derretida.",
+            "preco": 15.9
+          },
+          {
+            "id": 39,
+            "nome": "Torta de Limão",
+            "slug": "torta-de-limao",
+            "nota": 4.5,
+            "distancia": "0.6 km",
+            "tempoEntrega": "25-35 min",
+            "taxaEntrega": "R$ 4,70",
+            "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "descricaoCompleta": "Torta de limão refrescante com base crocante e merengue suave.",
+            "preco": 18.5
+          },
+          {
+            "id": 41,
+            "nome": "Cheesecake de Frutas Vermelhas",
+            "slug": "cheesecake-frutas-vermelhas",
+            "nota": 4.9,
+            "distancia": "0.5 km",
+            "tempoEntrega": "20-30 min",
+            "taxaEntrega": "R$ 4,70",
+            "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "descricaoCompleta": "Cheesecake cremoso com calda de frutas vermelhas frescas.",
+            "preco": 22.9
+          },
+          {
+            "id": 42,
+            "nome": "Brigadeiro Gourmet (Unidade)",
+            "slug": "brigadeiro-gourmet",
+            "nota": 5.0,
+            "distancia": "0.4 km",
+            "tempoEntrega": "15-25 min",
+            "taxaEntrega": "Grátis",
+            "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "descricaoCompleta": "Brigadeiro feito com chocolate belga e confeitos de alta qualidade.",
+            "preco": 4.5
+          }
+        ]
+      },
+      {
+        "id": "cat-002",
+        "nome": "Salgados",
+        "slug": "salgados",
+        "icone": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+        "itens": [
+          {
+            "id": 40,
+            "nome": "Coxinha de Frango",
+            "slug": "coxinha-de-frango",
+            "nota": 4.9,
+            "distancia": "0.6 km",
+            "tempoEntrega": "25-35 min",
+            "taxaEntrega": "R$ 4,70",
+            "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "descricaoCompleta": "A tradicional coxinha de frango com catupiry.",
+            "preco": 7.9
+          },
+          {
+            "id": 43,
+            "nome": "Empada de Palmito",
+            "slug": "empada-de-palmito",
+            "nota": 4.7,
+            "distancia": "0.7 km",
+            "tempoEntrega": "25-35 min",
+            "taxaEntrega": "R$ 4,70",
+            "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "descricaoCompleta": "Empada com recheio cremoso de palmito.",
+            "preco": 6.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "loja-002",
+    "slug": "pizzaria-napolitana",
+    "nome": "Pizzaria Napolitana",
+    "logo": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+    "endereco": "Av. Principal, 123",
+    "avaliacao": 4.9,
+    "tempoMedioEntrega": "30-40 min",
+    "taxaEntrega": "R$ 6,00",
+    "entregaGratis": false,
+    "categorias": [
+      {
+        "id": "cat-003",
+        "nome": "Pizzas Clássicas",
+        "slug": "pizzas-classicas",
+        "icone": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+        "itens": [
+          {
+            "id": 50,
+            "nome": "Pizza Margherita",
+            "slug": "pizza-margherita",
+            "nota": 4.9,
+            "distancia": "1.2 km",
+            "tempoEntrega": "30-40 min",
+            "taxaEntrega": "R$ 6,00",
+            "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "descricaoCompleta": "Molho de tomate, mussarela, manjericão e azeite.",
+            "preco": 45.0
+          },
+          {
+            "id": 51,
+            "nome": "Pizza Calabresa",
+            "slug": "pizza-calabresa",
+            "nota": 4.7,
+            "distancia": "1.2 km",
+            "tempoEntrega": "30-40 min",
+            "taxaEntrega": "R$ 6,00",
+            "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "descricaoCompleta": "Calabresa fatiada, cebola e mussarela.",
+            "preco": 42.0
+          }
+        ]
+      },
+      {
+        "id": "cat-004",
+        "nome": "Bebidas",
+        "slug": "bebidas",
+        "icone": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+        "itens": [
+          {
+            "id": 52,
+            "nome": "Guaraná 2L",
+            "slug": "guarana-2l",
+            "nota": 4.5,
+            "distancia": "1.2 km",
+            "tempoEntrega": "15-25 min",
+            "taxaEntrega": "R$ 6,00",
+            "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "descricaoCompleta": "Refrigerante Guaraná Antarctica 2 litros.",
+            "preco": 10.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "loja-003",
+    "slug": "sushi-do-cheff",
+    "nome": "Sushi do Cheff",
+    "logo": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+    "endereco": "Rua Japão, 500",
+    "avaliacao": 4.6,
+    "tempoMedioEntrega": "40-50 min",
+    "taxaEntrega": "R$ 8,00",
+    "entregaGratis": false,
+    "categorias": [
+      {
+        "id": "cat-005",
+        "nome": "Combinados",
+        "slug": "combinados",
+        "icone": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+        "itens": [
+          {
+            "id": 60,
+            "nome": "Combinado 20 Peças",
+            "slug": "combinado-20",
+            "nota": 4.6,
+            "distancia": "2.5 km",
+            "tempoEntrega": "40-50 min",
+            "taxaEntrega": "R$ 8,00",
+            "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "descricaoCompleta": "Seleção de sushis e sashimis frescos.",
+            "preco": 89.9
+          }
+        ]
+      }
+    ]
+  }
+
+]
