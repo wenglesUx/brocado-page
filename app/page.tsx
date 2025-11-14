@@ -45,7 +45,7 @@ export default function Desktop() {
     handleMouseMove,
   } = useCarousel(200, 2500);
 
-  // 🚀 Busca dados mockados
+  //  Busca dados mockados
   useEffect(() => {
     async function fetchMockData() {
       try {
@@ -79,12 +79,12 @@ export default function Desktop() {
     fetchMockData();
   }, []);
 
-  // 📦 Lógica de paginação
+  //  Lógica de paginação
   const indiceInicial = (paginaAtual - 1) * produtosPorPagina;
   const indiceFinal = indiceInicial + produtosPorPagina;
   const produtosExibidos = produtosFiltrados.slice(indiceInicial, indiceFinal);
 
-  // 🧠 Função de filtro
+  //  Função de filtro
   const aplicarFiltro = (tipo: string, valor?: any) => {
     let filtrados = produtos;
 
@@ -171,7 +171,7 @@ const aplicarFiltroCategoria = (slug: string) => {
 
 
   // busca por texto
-  // 🔎 Filtro em tempo real pelo campo de busca
+  //  Filtro em tempo real pelo campo de busca
 useEffect(() => {
   if (!busca.trim()) {
     // Se o campo estiver vazio, volta a exibir todos os produtos

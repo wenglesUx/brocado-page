@@ -29,7 +29,7 @@ export default function CarrinhoPage() {
       return;
     }
 
-    // Aqui você pode implementar a lógica de checkout
+    // lógica de checkout
     alert("Pedido finalizado com sucesso! (Funcionalidade de checkout pode ser expandida)");
     clearCart();
     router.push("/");
