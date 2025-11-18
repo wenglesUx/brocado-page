@@ -11,12 +11,18 @@ import { useCart } from "./contexts/CartContext";
 import { useAuth } from "./contexts/AuthContext";
 import { useAddress } from "./contexts/AddressContext";
 
+
+// sessão alterada
+// 
+// 
 export default function Desktop() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loja, setLoja] = useState<any>(null); // Agora armazena a primeira loja da lista
   const [categorias, setCategorias] = useState<any[]>([]);
-  const [produtos, setProdutos] = useState<any[]>([]);
-  const [produtosFiltrados, setProdutosFiltrados] = useState<any[]>([]);
+  const [lojas, setLojas] = useState<any[]>([]);
+  const [lojasFiltradas, setLojasFiltradas] = useState<any[]>([]);
+  // const [produtos, setProdutos] = useState<any[]>([]);
+  // const [produtosFiltrados, setProdutosFiltrados] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null); // Novo estado para erro
   const [paginaAtual, setPaginaAtual] = useState(1);
@@ -46,13 +52,18 @@ export default function Desktop() {
   } = useCarousel(200, 2500);
 
   //  Busca dados mockados
+
+  // sessão alterada
+  // 
+  // 
   useEffect(() => {
     async function fetchMockData() {
       try {
         const [lojaRes, catRes, prodRes] = await Promise.all([
           fetch("/api/lojas"),
           fetch("/api/categorias"),
-          fetch("/api/produtos"),
+          // fetch("/api/produtos"),
+            fetch("/api/lojas"),
         ]);
 
         if (!lojaRes.ok || !catRes.ok || !prodRes.ok) {
@@ -62,12 +73,15 @@ export default function Desktop() {
         const lojasData = await lojaRes.json();
         const lojaData = lojasData[0]; // Pega a primeira loja para o cabeçalho
         const catData = await catRes.json();
-        const prodData = await prodRes.json();
+         const lojasDataFinal = await prodRes.json();
+        // const prodData = await prodRes.json();
 
         setLoja(lojaData);
         setCategorias(catData);
-        setProdutos(prodData);
-        setProdutosFiltrados(prodData); // inicial: todos os produtos
+        setLojas(lojasDataFinal);
+        setLojasFiltradas(lojasDataFinal); // inicial: todas as lojas
+        // setProdutos(prodData);
+        // setProdutosFiltrados(prodData); // inicial: todos os produtos
       } catch (e) {
         console.error("Erro ao carregar mock da API:", e);
         setError("Erro ao carregar dados. Verifique o console para detalhes.");
@@ -82,55 +96,56 @@ export default function Desktop() {
   //  Lógica de paginação
   const indiceInicial = (paginaAtual - 1) * produtosPorPagina;
   const indiceFinal = indiceInicial + produtosPorPagina;
-  const produtosExibidos = produtosFiltrados.slice(indiceInicial, indiceFinal);
+    const lojasExibidas = lojasFiltradas.slice(indiceInicial, indiceFinal);
+  // const produtosExibidos = produtosFiltrados.slice(indiceInicial, indiceFinal);
 
   //  Função de filtro
-  const aplicarFiltro = (tipo: string, valor?: any) => {
-    let filtrados = produtos;
+ const aplicarFiltro = (tipo: string, valor?: any) => {
+    let filtrados = lojas;
 
     switch (tipo) {
       case "Entrega grátis":
-        filtrados = produtos.filter((p) => p.taxaEntrega === "Grátis");
+        filtrados = lojas.filter((l) => l.entregaGratis);
         break;
       case "Valor mínimo":
-        filtrados = produtos.filter((p) => p.precoMinimo && p.precoMinimo <= 20);
+        filtrados = lojas; // Não há valor mínimo no nível da loja
         break;
       case "Entrega parceira":
-        filtrados = produtos.filter((p) => p.parceiro === true);
+        filtrados = lojas; // Não há informação de parceiro no nível da loja
         break;
       case "Promoções":
-        filtrados = produtos.filter((p) => p.promocao === true);
+        filtrados = lojas; // Não há informação de promoção no nível da loja
         break;
       case "Super restaurantes":
-        filtrados = produtos.filter((p) => p.nota >= 4.8);
+        filtrados = lojas.filter((l) => l.avaliacao >= 4.8);
         break;
       case "Ordenar":
         // Ordenação
         if (valor === "promocoes") {
-          filtrados = produtos.filter((p) => p.promocao === true);
+          filtrados = lojas; // Não há informação de promoção no nível da loja
         } else if (valor === "valor-minimo") {
-          filtrados = produtos.filter((p) => p.precoMinimo && p.precoMinimo <= 20);
+          filtrados = lojas; // Não há valor mínimo no nível da loja
         }
         break;
       case "Vale refeição":
         // Filtro por tipo de vale refeição
-        filtrados = produtos.filter((p) => p.valeRefeicao && p.valeRefeicao.includes(valor));
+        filtrados = lojas; // Não há informação de vale refeição no nível da loja
         break;
       case "Distância":
-        // Filtro por distância (assumindo que produtos têm campo distancia em km)
-        filtrados = produtos.filter((p) => p.distancia && p.distancia <= valor);
+        // Filtro por distância (assumindo que lojas têm campo distancia em km)
+        filtrados = lojas; // Não há informação de distância no nível da loja
         break;
       case "reset":
-        filtrados = produtos; // volta todos os produtos
+        filtrados = lojas; // volta todas as lojas
         setBusca(""); // limpa o campo de busca
         setCategoriaAtiva(null); // limpa o filtro de categoria
         break;
 
       default:
-        filtrados = produtos;
+        filtrados = lojas;
     }
 
-    setProdutosFiltrados(filtrados);
+    setLojasFiltradas(filtrados);
     setPaginaAtual(1); // volta à primeira página
     
     // Fecha todos os dropdowns após aplicar filtro
@@ -138,30 +153,13 @@ export default function Desktop() {
     setDropdownValeRefeicao(false);
     setDropdownDistancia(false);
   };
-
   // filtro por catgorias slider
 const aplicarFiltroCategoria = (slug: string) => {
-  const filtrados = produtos.filter((p) => {
-    const categoriaProduto = p.categoria?.toLowerCase().replace(/\s|&|ç|ã|á|é|í|ó|ô|ú/g, (match) => {
-      const mapa = {
-        " ": "-",
-        "&": "e",
-        "ç": "c",
-        "ã": "a",
-        "á": "a",
-        "é": "e",
-        "í": "i",
-        "ó": "o",
-        "ô": "o",
-        "ú": "u",
-      };
-      return mapa[match] || "";
-    });
-
-    return p.slugCategoria === slug;
+  const filtrados = lojas.filter((loja) => {
+    return loja.categorias.some((categoria: any) => categoria.slug === slug);
   });
 
-  setProdutosFiltrados(filtrados);
+  setLojasFiltradas(filtrados);
   setPaginaAtual(1);
   setBusca("");
   setCategoriaAtiva(slug);
@@ -169,29 +167,27 @@ const aplicarFiltroCategoria = (slug: string) => {
 };
 
 
-
   // busca por texto
   //  Filtro em tempo real pelo campo de busca
 useEffect(() => {
   if (!busca.trim()) {
-    // Se o campo estiver vazio, volta a exibir todos os produtos
-    setProdutosFiltrados(produtos);
+    // Se o campo estiver vazio, volta a exibir todas as lojas
+    setLojasFiltradas(lojas);
     setPaginaAtual(1);
     return;
   }
 
   const termo = busca.toLowerCase();
 
-  const filtrados = produtos.filter(
-    (p) =>
-      p.nome.toLowerCase().includes(termo) ||
-      (p.categoria && p.categoria.toLowerCase().includes(termo)) ||
-      (loja?.nome && loja.nome.toLowerCase().includes(termo)) // Mantém a busca por nome da loja no cabeçalho
+  const filtrados = lojas.filter(
+    (loja) =>
+      loja.nome.toLowerCase().includes(termo) ||
+      loja.categorias.some((c: any) => c.nome.toLowerCase().includes(termo))
   );
 
-  setProdutosFiltrados(filtrados);
+  setLojasFiltradas(filtrados);
   setPaginaAtual(1);
-}, [busca, produtos, loja]);
+}, [busca, lojas]);
 
 {busca && (
   <button
@@ -448,17 +444,17 @@ useEffect(() => {
               {error && <p style={{color: 'red'}}>Erro ao carregar produtos: {error}</p>}
 
               {!loading && !error &&
-                produtosExibidos.map((item) => (
+                lojasExibidas.map((loja) => (
                   <Link
-                    key={item.id}
-                    href={item.slugLoja && item.slugCategoria && item.slug ? `/loja/${item.slugLoja}/${item.slugCategoria}/${item.slug}` : "#"}
+                    key={loja.id}
+                    href={`/loja/${loja.slug}`}
                     className={styles["restaurant-card"]}
                   >
                     <div className={styles["restaurant-card__image"]}>
-                      {item.imagem && (
+                      {loja.imagem && (
                         <Image
-                          src={item.imagem}
-                          alt={item.nome}
+                          src={loja.imagem}
+                          alt={loja.nome}
                           width={92}
                           height={92}
                         />
@@ -467,7 +463,7 @@ useEffect(() => {
 
                     <div className={styles["restaurant-card__info"]}>
                       <h3 className={styles["restaurant-card__name"]}>
-                        {item.nome}
+                        {loja.nome}
                       </h3>
 
                       <div className={styles["restaurant-card__meta"]}>
@@ -480,7 +476,7 @@ useEffect(() => {
                               className={styles["star-icon__foreground"]}
                             ></div>
                           </div>
-                          <span>{item.nota}</span>
+                          <span>{loja.nota}</span>
                         </div>
 
                         <Image
@@ -490,7 +486,7 @@ useEffect(() => {
                           width={3}
                           height={3}
                         />
-                        <span>{item.categoria}</span>
+                        <span>{loja.categoria}</span>
                         <Image
                           src="/images/I2_3875_2_3866.svg"
                           alt=""
@@ -498,11 +494,11 @@ useEffect(() => {
                           width={3}
                           height={3}
                         />
-                        <span>{item.distancia}</span>
+                        <span>{loja.distancia}</span>
                       </div>
 
                       <div className={styles["restaurant-card__delivery"]}>
-                        <span>{item.tempoEntrega}</span>
+                        <span>{loja.tempoEntrega}</span>
                         <Image
                           src="/images/I2_3875_2_3872.svg"
                           alt=""
@@ -510,7 +506,7 @@ useEffect(() => {
                           width={3}
                           height={3}
                         />
-                        <span>{item.taxaEntrega}</span>
+                        <span>{loja.taxaEntrega}</span>
                       </div>
                     </div>
                   </Link>
@@ -536,20 +532,20 @@ useEffect(() => {
 
               <span style={{ alignSelf: "center" }}>
                 Página {paginaAtual} de{" "}
-                {Math.ceil(produtosFiltrados.length / produtosPorPagina)}
+                {Math.ceil(lojasFiltradas.length / produtosPorPagina)}
               </span>
 
               <button
                 onClick={() =>
                   setPaginaAtual((p) =>
-                    p < Math.ceil(produtosFiltrados.length / produtosPorPagina)
+                    p < Math.ceil(lojasFiltradas.length / produtosPorPagina)
                       ? p + 1
                       : p
                   )
                 }
                 disabled={
                   paginaAtual >=
-                  Math.ceil(produtosFiltrados.length / produtosPorPagina)
+                  Math.ceil(lojasFiltradas.length / produtosPorPagina)
                 }
                 className={styles["filter-badge"]}
               >

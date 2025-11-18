@@ -9,6 +9,9 @@
     "tempoMedioEntrega": "25-35 min",
     "taxaEntrega": "R$ 4,70",
     "entregaGratis": true,
+    "is24h": false,
+    "horarioAbertura": "05:00",
+    "horarioFechamento": "22:00",
     "categorias": [
       {
         "id": "cat-001",
@@ -24,9 +27,35 @@
             "distancia": "0.6 km",
             "tempoEntrega": "25-35 min",
             "taxaEntrega": "R$ 4,70",
-            "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "imagem": "/images/hamburguer-de-vista-frontal-em-un-carrinho.jpg",
+            "imagensAdicionais": [
+              "/images/bolo-fuba-1.jpg",
+              "/images/bolo-fuba-2.jpg"
+            ],
             "descricaoCompleta": "Delicioso bolo de fubá com uma generosa camada de goiabada derretida.",
-            "preco": 15.9
+            "preco": 15.9,
+            "adicionais": [
+              {
+                "titulo": "Cobertura Extra (Obrigatório)",
+                "minimo": 1,
+                "maximo": 1,
+                "opcoes": [
+                  { "nome": "Calda de Chocolate", "preco": 3.00 },
+                  { "nome": "Calda de Caramelo", "preco": 3.00 },
+                  { "nome": "Sem Cobertura Extra", "preco": 0.00 }
+                ]
+              },
+              {
+                "titulo": "Adicionar Frutas (Opcional)",
+                "minimo": 0,
+                "maximo": 2,
+                "opcoes": [
+                  { "nome": "Morango", "preco": 4.50 },
+                  { "nome": "Mirtilo", "preco": 5.00 },
+                  { "nome": "Raspas de Limão", "preco": 2.00 }
+                ]
+              }
+            ]
           },
           {
             "id": 39,
@@ -37,8 +66,22 @@
             "tempoEntrega": "25-35 min",
             "taxaEntrega": "R$ 4,70",
             "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "imagensAdicionais": [
+              "/images/torta-limao-1.jpg"
+            ],
             "descricaoCompleta": "Torta de limão refrescante com base crocante e merengue suave.",
-            "preco": 18.5
+            "preco": 18.5,
+            "adicionais": [
+              {
+                "titulo": "Tamanho da Fatia (Obrigatório)",
+                "minimo": 1,
+                "maximo": 1,
+                "opcoes": [
+                  { "nome": "Fatia Padrão", "preco": 0.00 },
+                  { "nome": "Fatia Grande (+R$ 5,00)", "preco": 5.00 }
+                ]
+              }
+            ]
           },
           {
             "id": 41,
@@ -49,8 +92,13 @@
             "tempoEntrega": "20-30 min",
             "taxaEntrega": "R$ 4,70",
             "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "imagensAdicionais": [
+              "/images/cheesecake-1.jpg",
+              "/images/cheesecake-2.jpg"
+            ],
             "descricaoCompleta": "Cheesecake cremoso com calda de frutas vermelhas frescas.",
-            "preco": 22.9
+            "preco": 22.9,
+            "adicionais": []
           },
           {
             "id": 42,
@@ -61,8 +109,21 @@
             "tempoEntrega": "15-25 min",
             "taxaEntrega": "Grátis",
             "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "imagensAdicionais": [],
             "descricaoCompleta": "Brigadeiro feito com chocolate belga e confeitos de alta qualidade.",
-            "preco": 4.5
+            "preco": 4.5,
+            "adicionais": [
+              {
+                "titulo": "Tipo de Chocolate (Obrigatório)",
+                "minimo": 1,
+                "maximo": 1,
+                "opcoes": [
+                  { "nome": "Ao Leite", "preco": 0.00 },
+                  { "nome": "Meio Amargo", "preco": 0.50 },
+                  { "nome": "Branco", "preco": 0.50 }
+                ]
+              }
+            ]
           }
         ]
       },
@@ -81,8 +142,21 @@
             "tempoEntrega": "25-35 min",
             "taxaEntrega": "R$ 4,70",
             "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "imagensAdicionais": [],
             "descricaoCompleta": "A tradicional coxinha de frango com catupiry.",
-            "preco": 7.9
+            "preco": 7.9,
+            "adicionais": [
+              {
+                "titulo": "Molho Extra (Opcional)",
+                "minimo": 0,
+                "maximo": 3,
+                "opcoes": [
+                  { "nome": "Ketchup", "preco": 1.00 },
+                  { "nome": "Maionese Temperada", "preco": 1.50 },
+                  { "nome": "Pimenta", "preco": 1.00 }
+                ]
+              }
+            ]
           },
           {
             "id": 43,
@@ -93,8 +167,10 @@
             "tempoEntrega": "25-35 min",
             "taxaEntrega": "R$ 4,70",
             "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "imagensAdicionais": [],
             "descricaoCompleta": "Empada com recheio cremoso de palmito.",
-            "preco": 6.5
+            "preco": 6.5,
+            "adicionais": []
           }
         ]
       }
@@ -110,6 +186,9 @@
     "tempoMedioEntrega": "30-40 min",
     "taxaEntrega": "R$ 6,00",
     "entregaGratis": false,
+    "is24h": false,
+    "horarioAbertura": "18:00",
+    "horarioFechamento": "00:00",
     "categorias": [
       {
         "id": "cat-003",
@@ -126,8 +205,31 @@
             "tempoEntrega": "30-40 min",
             "taxaEntrega": "R$ 6,00",
             "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "imagensAdicionais": [
+              "/images/pizza-margherita-1.jpg"
+            ],
             "descricaoCompleta": "Molho de tomate, mussarela, manjericão e azeite.",
-            "preco": 45.0
+            "preco": 45.0,
+            "adicionais": [
+              {
+                "titulo": "Borda (Obrigatório)",
+                "minimo": 1,
+                "maximo": 1,
+                "opcoes": [
+                  { "nome": "Sem Borda", "preco": 0.00 },
+                  { "nome": "Borda de Catupiry", "preco": 8.00 },
+                  { "nome": "Borda de Cheddar", "preco": 8.00 }
+                ]
+              },
+              {
+                "titulo": "Molho Extra (Opcional)",
+                "minimo": 0,
+                "maximo": 1,
+                "opcoes": [
+                  { "nome": "Azeite Extra Virgem", "preco": 3.00 }
+                ]
+              }
+            ]
           },
           {
             "id": 51,
@@ -138,8 +240,21 @@
             "tempoEntrega": "30-40 min",
             "taxaEntrega": "R$ 6,00",
             "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "imagensAdicionais": [],
             "descricaoCompleta": "Calabresa fatiada, cebola e mussarela.",
-            "preco": 42.0
+            "preco": 42.0,
+            "adicionais": [
+              {
+                "titulo": "Borda (Obrigatório)",
+                "minimo": 1,
+                "maximo": 1,
+                "opcoes": [
+                  { "nome": "Sem Borda", "preco": 0.00 },
+                  { "nome": "Borda de Catupiry", "preco": 8.00 },
+                  { "nome": "Borda de Cheddar", "preco": 8.00 }
+                ]
+              }
+            ]
           }
         ]
       },
@@ -158,8 +273,10 @@
             "tempoEntrega": "15-25 min",
             "taxaEntrega": "R$ 6,00",
             "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "imagensAdicionais": [],
             "descricaoCompleta": "Refrigerante Guaraná Antarctica 2 litros.",
-            "preco": 10.0
+            "preco": 10.0,
+            "adicionais": []
           }
         ]
       }
@@ -175,6 +292,9 @@
     "tempoMedioEntrega": "40-50 min",
     "taxaEntrega": "R$ 8,00",
     "entregaGratis": false,
+    "is24h": true,
+    "horarioAbertura": "19:00",
+    "horarioFechamento": "23:30",
     "categorias": [
       {
         "id": "cat-005",
@@ -191,12 +311,26 @@
             "tempoEntrega": "40-50 min",
             "taxaEntrega": "R$ 8,00",
             "imagem": "/images/hamburguer-de-vista-frontal-em-um-carrinho.jpg",
+            "imagensAdicionais": [
+              "/images/combinado-sushi-1.jpg"
+            ],
             "descricaoCompleta": "Seleção de sushis e sashimis frescos.",
-            "preco": 89.9
+            "preco": 89.9,
+            "adicionais": [
+              {
+                "titulo": "Molho Extra (Opcional)",
+                "minimo": 0,
+                "maximo": 2,
+                "opcoes": [
+                  { "nome": "Shoyu", "preco": 0.00 },
+                  { "nome": "Tarê", "preco": 2.00 },
+                  { "nome": "Gengibre Extra", "preco": 1.50 }
+                ]
+              }
+            ]
           }
         ]
       }
     ]
   }
-
 ]

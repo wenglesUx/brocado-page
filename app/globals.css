@@ -96,6 +96,12 @@ h1 {
   --color-star: #fdb022;
   --font-primary: 'Outfit', sans-serif; /* Adicionado para consistência */
   --font-display: 'Oslla', sans-serif; /* Adicionado para consistência */
+
+  --card-bg: #ffffff;
+  --border-soft: #e7e7e7;
+  --radius: 18px;
+  --shadow-soft: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0px 6px 18px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -700,3 +706,10 @@ a {
   }
 }
 
+/*  */
+/*  */
+/*  */
+
+
+
+ 

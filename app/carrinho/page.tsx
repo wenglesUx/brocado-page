@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import styles from "../../components/styles/Desktop.module.css";
+import ItemDetalhesCarrinho from "../../components/ItemDetalhesCarrinho";
 import { useCart } from "../contexts/CartContext";
 import { useAuth } from "../contexts/AuthContext";
 import { useAddress } from "../contexts/AddressContext";
@@ -83,7 +84,14 @@ export default function CarrinhoPage() {
                         <h3 style={{ marginBottom: "8px", fontSize: "18px" }}>{item.nome}</h3>
                         <p style={{ color: "#666", marginBottom: "12px" }}>
                           R$ {item.preco.toFixed(2).replace(".", ",")}
+                          {item.preco > item.preco && (
+                            <span style={{ color: "#a72901", fontWeight: "bold", marginLeft: "10px" }}>
+                              (+R$ {(item.preco - item.preco).toFixed(2).replace(".", ",")})
+                            </span>
+                          )}
                         </p>
+                        {/* NOVO: Detalhes do item (Adicionais e Observação) */}
+                        <ItemDetalhesCarrinho item={item} />
                         
                         <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
                           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
