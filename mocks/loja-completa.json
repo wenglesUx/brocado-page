@@ -10,8 +10,8 @@
     "taxaEntrega": "R$ 4,70",
     "entregaGratis": true,
     "is24h": false,
-    "horarioAbertura": "05:00",
-    "horarioFechamento": "22:00",
+    "horarioAbertura": "08:00",
+    "horarioFechamento": "17:00",
     "categorias": [
       {
         "id": "cat-001",

@@ -259,11 +259,11 @@
   color: var(--color-text-secondary);
   cursor: pointer;
 }
-.restaurant-grid {
+/* .restaurant-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
-}
+} */
 .restaurant-card {
   display: flex;
   align-items: center;
@@ -837,13 +837,16 @@
   margin-bottom: 15px;
   background-color: #fff;
 }
-
-
-@media (max-width:425px){
-   .grid-cart-items{
+@media (max-width:768px){
+     .grid-cart-items{
     display:grid;
      grid-template-columns: 1fr; /* apenas 1 coluna */
-  }
+}
+}
+
+@media (max-width:425px){
+
+  
   .gridd-cart-items{
     flex-direction: column;
     align-items: center;
@@ -963,8 +966,8 @@
 /* ==== GRID DE PRODUTOS ==== */
 .restaurant-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
 }
 
 /* ==== CARD DE PRODUTO ==== */
@@ -1035,3 +1038,270 @@
     padding: 18px;
   }
 } 
+
+/* Estilo para o modal */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: var(--color-bg-light);
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+}
+
+.modalTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 15px;
+}
+
+.modalMessage {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin-bottom: 30px;
+}
+
+.modalActionButton {
+  background-color: var(--color-accent);
+  color: var(--color-text-footer);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.modalActionButton:hover {
+  background-color: var(--color-accent-dark);
+}
+
+.modalSecondaryButton {
+  background-color: transparent;
+  color: var(--color-accent);
+  padding: 12px 24px;
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.modalSecondaryButton:hover {
+  background-color: rgba(167, 41, 1, 0.1);
+}
+
+/* Estilos para o Cabeçalho Remodelado da Loja */
+.loja-header-remodelado {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.1);
+}
+.info-main{
+  display:flex;
+  justify-content:space-between
+}
+
+.loja-logo-container {
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.loja-logo {
+  object-fit: cover;
+}
+
+.loja-info-remodelado {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.loja-nome {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.loja-meta-remodelado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items:center;
+  gap: 16px;
+  font-size: 16px;
+  color: var(--color-text-secondary);
+}
+
+.loja-avaliacao, .loja-endereco, .loja-status, .loja-horario, .loja-entrega, .loja-taxa {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+      outline: none;
+    border: none;
+    height: 40px;
+    background: 0% 0% no-repeat padding-box padding-box rgb(245, 245, 245);
+    border-radius: 28px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    text-transform: none;
+    text-align: left;
+    letter-spacing: 0px;
+    color: rgb(33, 33, 33);
+   
+}
+
+.icone {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+  stroke: currentColor; /* Faz o ícone herdar a cor do texto */
+}
+
+.loja-status {
+  font-weight: 600;
+  color: var(--color-accent); /* Cor para status de aberto/fechado */
+      padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(212, 237, 218);
+    padding:0 2rem;
+}
+
+/* Adicionando um separador visual entre os itens de meta */
+.loja-meta-remodelado > span:not(:last-child)::after {
+  /* content: "•"; */
+  margin-left: 16px;
+  color: var(--color-text-light);
+}
+
+/* Ajuste para o banner da loja para remover o estilo antigo */
+.loja-banner {
+  background-color: var(--color-bg-light); /* Fundo claro para o cabeçalho */
+  padding-bottom: 0;
+}
+
+/* Removendo o estilo antigo do cabeçalho, se existir */
+.loja-header {
+  display: none; /* Oculta o cabeçalho antigo */
+}
+
+
+@media (max-width:720px){
+  .loja-header-remodelado {
+    flex-direction:column
+}
+}
+
+/* cards items de dentro da pagina da loja */
+.items-grid{
+  display: grid;
+    gap: 1rem;
+}
+.item-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff7e6;
+  padding: 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #000;
+  gap: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+}
+.item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+.item-card__image {
+  width:100px;
+  height:100px;
+}
+.item-card__image img {
+  border-radius: 8px;
+  object-fit: cover;
+height:100%;width:100%;
+}
+
+.item-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-card__name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.item-card__meta {
+  display: flex;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.item-card__rating {
+  color: #f4b400;
+  font-weight: 600;
+}
+
+.item-card__delivery {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 4px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.item-card__price {
+  margin-top: auto;
+  font-weight: bold;
+  font-size: 1rem;
+}

@@ -451,7 +451,7 @@ useEffect(() => {
                     className={styles["restaurant-card"]}
                   >
                     <div className={styles["restaurant-card__image"]}>
-                      {loja.imagem && (
+                      {loja.logo && (
                         <Image
                           src={loja.imagem}
                           alt={loja.nome}
@@ -466,48 +466,36 @@ useEffect(() => {
                         {loja.nome}
                       </h3>
 
-                      <div className={styles["restaurant-card__meta"]}>
-                        <div className={styles.rating}>
-                          <div className={styles["star-icon"]}>
-                            <div
-                              className={styles["star-icon__background"]}
-                            ></div>
-                            <div
-                              className={styles["star-icon__foreground"]}
-                            ></div>
-                          </div>
-                          <span>{loja.nota}</span>
-                        </div>
+                    <div className={styles["restaurant-card__meta"]}>
+                  <div className={styles.rating}>
+                    <div className={styles["star-icon"]}>
+                      <div className={styles["star-icon__background"]}></div>
+                      <div className={styles["star-icon__foreground"]}></div>
+                    </div>
+                    <span>{loja.nota}</span>
+                  </div>
 
-                        <Image
-                          src="/images/I2_3875_2_3863.svg"
-                          alt=""
-                          className={styles["separator-dot"]}
-                          width={3}
-                          height={3}
-                        />
-                        <span>{loja.categoria}</span>
-                        <Image
-                          src="/images/I2_3875_2_3866.svg"
-                          alt=""
-                          className={styles["separator-dot"]}
-                          width={3}
-                          height={3}
-                        />
-                        <span>{loja.distancia}</span>
-                      </div>
+                  <span className={styles.separator}></span>
 
-                      <div className={styles["restaurant-card__delivery"]}>
-                        <span>{loja.tempoEntrega}</span>
-                        <Image
-                          src="/images/I2_3875_2_3872.svg"
-                          alt=""
-                          className={styles["separator-dot"]}
-                          width={3}
-                          height={3}
-                        />
-                        <span>{loja.taxaEntrega}</span>
-                      </div>
+                      {/* categoria principal da loja */}
+                      <span>{loja.categorias?.[0]?.nome}</span>
+
+                      <span className={styles.separator}></span>
+
+                      {/* distância do 1º item da 1ª categoria */}
+                      <span>{loja.categorias?.[0]?.itens?.[0]?.distancia}</span>
+                    </div>
+
+                    <div className={styles["restaurant-card__delivery"]}>
+                      {/* tempo médio de entrega */}
+                      <span>{loja.tempoMedioEntrega}</span>
+
+                      <span className={styles.separator}></span>
+
+                      {/* taxa de entrega */}
+                      <span>{loja.taxaEntrega}</span>
+                    </div>
+
                     </div>
                   </Link>
                 ))}
